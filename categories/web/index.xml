@@ -15,7 +15,10 @@
       <pubDate>Sat, 18 Apr 2015 16:13:16 ART</pubDate>
       
       <guid>http://martjanz.github.io/post/20150418-first/</guid>
-      <description>La consigna: tener un blog sin gastar guita ni tener que estar pendiente de que no se caiga la base de datos, el sitio, la plataforma o una taza sobre el gabinete. ¿GitHub Pages? Contras: GitHub no permite la ejecución de código en el servidor. Deben ser sitios estáticos, con archivos generados a priori. Ventajas: Control de versiones sobre el contenido del sitio. Velocidad. Simpleza. Muy bien. Entonces necesito un generador de sitios estáticos.</description>
+      <description>&lt;p&gt;La consigna: tener un blog sin gastar guita ni tener que estar pendiente de que no se caiga la base de datos, el sitio, la plataforma o una taza sobre el gabinete.&lt;/p&gt;
+
+&lt;p&gt;¿GitHub Pages?&lt;/p&gt;
+</description>
     </item>
     
   </channel>

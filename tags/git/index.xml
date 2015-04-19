@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Git on Esquelas </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://localhost:1313/tags/git/</link>
+    <language>es-ar</language>
+    
+    
+    <updated>Sun, 19 Apr 2015 01:00:00 ART</updated>
+    
+    <item>
+      <title>Hugo en Github Pages</title>
+      <link>http://localhost:1313/post/20150419-hugo-on-github-pages/</link>
+      <pubDate>Sun, 19 Apr 2015 01:00:00 ART</pubDate>
+      
+      <guid>http://localhost:1313/post/20150419-hugo-on-github-pages/</guid>
+      <description>&lt;p&gt;Hugo y Github Pages pueden ser una excelente combinación, aunque para mantener el contenido separado del sitio generado haya que hacer algunos pocos malabares.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+

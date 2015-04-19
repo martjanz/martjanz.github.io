@@ -1,0 +1,3 @@
+[submodule "campomap"]
+	path = campomap
+	url = https://github.com/martjanz/campomap
