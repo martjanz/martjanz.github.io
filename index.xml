@@ -5,7 +5,7 @@
       <generator uri="https://gohugo.io">Hugo</generator>
     <link>http://martjanz.github.io/</link>
     <language>es-ar</language>
-    
+    <author>Martín Anzorena</author>
     
     <updated>Sun, 19 Apr 2015 06:09:42 ART</updated>
     
@@ -13,7 +13,7 @@
       <title>Proyectos</title>
       <link>http://martjanz.github.io/proyectos/</link>
       <pubDate>Sun, 19 Apr 2015 06:09:42 ART</pubDate>
-      
+      <author>Martín Anzorena</author>
       <guid>http://martjanz.github.io/proyectos/</guid>
       <description>Campomap es un buscador y visualizador de radios censales (según datos del Censo Nacional de Población, Hogares y Viviendas Argentina 2010).</description>
     </item>
@@ -22,7 +22,7 @@
       <title>Qué es</title>
       <link>http://martjanz.github.io/about/</link>
       <pubDate>Sun, 19 Apr 2015 06:09:42 ART</pubDate>
-      
+      <author>Martín Anzorena</author>
       <guid>http://martjanz.github.io/about/</guid>
       <description>Un espacio para guardar cosas sueltas.</description>
     </item>
@@ -31,12 +31,21 @@
       <title>1/392</title>
       <link>http://martjanz.github.io/post/20150418-first/</link>
       <pubDate>Sat, 18 Apr 2015 16:13:16 ART</pubDate>
-      
+      <author>Martín Anzorena</author>
       <guid>http://martjanz.github.io/post/20150418-first/</guid>
       <description>&lt;p&gt;La consigna: tener un blog sin gastar guita ni tener que estar pendiente de que no se caiga la base de datos, el sitio, la plataforma o una taza sobre el gabinete.&lt;/p&gt;
 
 &lt;p&gt;¿GitHub Pages?&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Contacto</title>
+      <link>http://martjanz.github.io/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 UTC</pubDate>
+      <author>Martín Anzorena</author>
+      <guid>http://martjanz.github.io/contact/</guid>
+      <description>Para comunicarnos por mail, como nuestros antepasados.</description>
     </item>
     
   </channel>
