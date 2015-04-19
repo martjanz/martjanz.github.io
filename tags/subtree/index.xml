@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Git on Esquelas </title>
+      <title>Subtree on Esquelas </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://martjanz.github.io/tags/git/</link>
+    <link>http://localhost:1313/tags/subtree/</link>
     <language>es-ar</language>
     <author>Martín Anzorena</author>
     
@@ -11,11 +11,11 @@
     
     <item>
       <title>git subtree</title>
-      <link>http://martjanz.github.io/post/20150419-github-subtree/</link>
+      <link>http://localhost:1313/post/20150419-github-subtree/</link>
       <pubDate>Sun, 19 Apr 2015 17:55:31 ART</pubDate>
       <author>Martín Anzorena</author>
-      <guid>http://martjanz.github.io/post/20150419-github-subtree/</guid>
-      <description>&lt;p&gt;&lt;code&gt;git subtree&lt;/code&gt; no está disponible en las instalaciones por defecto de git y puede llegar a necesitarse, por ejemplo, para mantener directorios espejados dentro de un mismo repositorio git.&lt;/p&gt;
+      <guid>http://localhost:1313/post/20150419-github-subtree/</guid>
+      <description>&lt;p&gt;&lt;code&gt;git subtree&lt;/code&gt; no está disponible en las instalaciones por defecto de git.&lt;/p&gt;
 </description>
     </item>
     

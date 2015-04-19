@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Hugo en Github Pages - Esquelas</title>
+  <title>Hugo y Github Pages - Esquelas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -33,7 +33,7 @@
       <a href="http://localhost:1313/proyectos/">Proyectos</a>
 <a href="http://localhost:1313/tags">Tags</a>
 <a href="http://localhost:1313/contact">Contacto</a>
-<a href="http://localhost:1313/about/">Acerca del sitio</a>
+
 
 </form>
 
@@ -46,42 +46,13 @@
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
       <div class="post-header mb2">
-        <h1 class="py2">Hugo en Github Pages</h1>
+        <h1 class="py2">Hugo y Github Pages</h1>
         <span class="post-meta">19/4/2015</span><br>
         
       </div>
 
       <article class="post-content">
-      
-
-<p>Hugo y Github Pages pueden ser una excelente combinación, aunque para mantener el contenido separado del sitio generado haya que hacer algunos pocos malabares.</p>
-
-<h4 id="instalar-git-subtree-os-x-10-8:93843322a68727fe7b885a29f8352b7a">Instalar git subtree (OS X 10.8)</h4>
-
-<pre><code class="language-bash">$ git clone https://github.com/git/git.git
-
-$ cd git/contrib/subtree
-
-$ make
-
-$ make prefix=/usr install
-</code></pre>
-
-<p>El prefijo es importante para que subtree sea instalado en el directorio correcto.
-Nota: debe usarse sudo por estar trabajando en /usr</p>
-
-<p>Eliminar los fuentes de git, salvo que pretenda dársele otra utilidad.</p>
-
-<pre><code class="language-bash">cd ../../..
-
-rm -rf git/
-</code></pre>
-
-<p>``` bash
-git subtree add &ndash;prefix=public <a href="https://github.com/martjanz/hugo-blog.git">https://github.com/martjanz/hugo-blog.git</a> gh-pages &ndash;squash</p>
-
-<p>git subtree pull -prefix=public <a href="https://github.com/martjanz/hugo_gh_blog.git">https://github.com/martjanz/hugo_gh_blog.git</a> gh-pages
-``</p>
+      <p>Hugo y Github Pages pueden ser una excelente combinación. Al principio puede no resultar tan fácil de usar como Blogger o Wordpress, es cierto, pero con una ventaja única: tanto el contenido como el generador del sitio es libre, de código abierto, y puede instalarse en cualquier sistema operativo, aún estando desconectados de internet.</p>
 
       </article>
 

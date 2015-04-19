@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Git - Esquelas</title>
+  <title>git subtree - Esquelas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="keywords" content="">
-  <link rel="canonical" href="http://martjanz.github.io/tags/git/">
+  <link rel="canonical" href="http://martjanz.github.io/post/20150419-github-subtree/">
 
   
   
@@ -45,12 +45,62 @@
 
   <div class="post p2 p-responsive wrap" role="main">
     <div class="measure">
-    <p>Tag: git</p>
-    <ul>
+      <div class="post-header mb2">
+        <h1 class="py2">git subtree</h1>
+        <span class="post-meta">19/4/2015</span><br>
         
-            <li><a href="http://martjanz.github.io/post/20150419-github-subtree/"> git subtree </a></li>
+      </div>
+
+      <article class="post-content">
+      
+
+<p><code>git subtree</code> no está disponible en las instalaciones por defecto de git y puede llegar a necesitarse, por ejemplo, para mantener directorios espejados dentro de un mismo repositorio git.</p>
+
+<h4 id="instalación-de-git-subtree-probado-en-os-x-10-7-5:2c265b1c58b1f4b0c29a812cfcc8dfd1">Instalación de git subtree (probado en OS X 10.7.5)</h4>
+
+<p>Según se lee en algunos foros la instalación más fácil es usando homebrew pero en mi caso después de varios errores, problemas de dependencias y otros inconvenientes opté por lo siguiente:</p>
+
+<pre><code class="language-bash">$ git clone https://github.com/git/git.git
+
+$ cd git/contrib/subtree
+
+$ make
+
+$ sudo make prefix=/usr install
+</code></pre>
+
+<blockquote>
+<p><code>sudo</code> es requerido por estar trabajando en <code>/usr</code>.</p>
+
+<p><code>prefix</code> es necesario para que subtree se instale en el directorio correcto.</p>
+</blockquote>
+
+<p>Eliminar el código fuente, salvo que pretenda dársele otra utilidad.</p>
+
+<pre><code class="language-bash">cd ../../..
+
+rm -rf git/
+</code></pre>
+
+<p>Listo.</p>
+
+<pre><code class="language-bash">git subtree
+</code></pre>
+
+      </article>
+
+      <p class="post-meta">Tags:&nbsp;
         
-    </ul>
+            
+            <a href="http://martjanz.github.io//tags/git">git</a>
+        
+            ,&nbsp;
+            <a href="http://martjanz.github.io//tags/os%20x">os x</a>
+        
+      </p>
+
+      
+
     </div>
   </div>
 </div>

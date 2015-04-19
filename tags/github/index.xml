@@ -10,12 +10,12 @@
     <updated>Sun, 19 Apr 2015 01:00:00 ART</updated>
     
     <item>
-      <title>Hugo en Github Pages</title>
+      <title>Hugo y Github Pages</title>
       <link>http://localhost:1313/post/20150419-hugo-on-github-pages/</link>
       <pubDate>Sun, 19 Apr 2015 01:00:00 ART</pubDate>
       <author>Martín Anzorena</author>
       <guid>http://localhost:1313/post/20150419-hugo-on-github-pages/</guid>
-      <description>&lt;p&gt;Hugo y Github Pages pueden ser una excelente combinación, aunque para mantener el contenido separado del sitio generado haya que hacer algunos pocos malabares.&lt;/p&gt;
+      <description>&lt;p&gt;Hugo y Github Pages pueden ser una excelente combinación. Al principio puede no resultar tan fácil de usar como Blogger o Wordpress, es cierto, pero con una ventaja única: tanto el contenido como el generador del sitio es libre, de código abierto, y puede instalarse en cualquier sistema operativo, aún estando desconectados de internet.&lt;/p&gt;
 </description>
     </item>
     

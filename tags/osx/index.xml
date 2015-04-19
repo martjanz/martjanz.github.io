@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Osx on Esquelas </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://localhost:1313/tags/osx/</link>
+    <language>es-ar</language>
+    <author>Martín Anzorena</author>
+    
+    <updated>Sun, 19 Apr 2015 17:55:31 ART</updated>
+    
+    <item>
+      <title>github subtree</title>
+      <link>http://localhost:1313/post/20150419-github-subtree/</link>
+      <pubDate>Sun, 19 Apr 2015 17:55:31 ART</pubDate>
+      <author>Martín Anzorena</author>
+      <guid>http://localhost:1313/post/20150419-github-subtree/</guid>
+      <description>&lt;p&gt;git subtree no está disponible en las instalaciones por defecto de git.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
+
