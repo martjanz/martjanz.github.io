@@ -91,15 +91,13 @@ gcc shell.c sqlite3.c -lpthread -ldl -o sqlite3
 
 <h5 id="tercero-compilar-pcre:dda65aa3f1aec8b76aa623f85b5aaac9">Tercero, compilar PCRE</h5>
 
-<pre><code>```bash
-git clone https://github.com/ralight/sqlite3-pcre
+<pre><code class="language-bash">git clone https://github.com/ralight/sqlite3-pcre
 
 cd sqlite3-pcre
 
 cc -shared -o pcre.so -I/opt/local/include -fPIC -W -Werror pcre.c -L/opt/local/lib -lpcre
 
 cd ..
-```
 </code></pre>
 
 <h5 id="y-por-último-probar-que-todo-funcione:dda65aa3f1aec8b76aa623f85b5aaac9">Y por último, probar que todo funcione</h5>
