@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Posts on Esquelas </title>
+      <title>Regexp on Esquelas </title>
       <generator uri="https://gohugo.io">Hugo</generator>
-    <link>http://martjanz.github.io/post/</link>
+    <link>http://martjanz.github.io/tags/regexp/</link>
     <language>es-ar</language>
     <author>Martín Anzorena</author>
     
@@ -22,26 +22,6 @@
 &lt;p&gt;Sí, REGEXP es un comando especial para la función &lt;code&gt;regexp()&lt;/code&gt; definida por el usuario, y como por defecto no hay función &lt;code&gt;regexp()&lt;/code&gt; definida el uso de REGEXP suele resultar en un mensaje de error.&lt;/p&gt;
 
 &lt;p&gt;Para habilitar el uso de las expresiones regulares desde la línea de comandos hay que seguir algunos pasos, y eso es lo que se detalla a continuación.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>git subtree: instalación en OS X</title>
-      <link>http://martjanz.github.io/post/20150419-github-subtree/</link>
-      <pubDate>Sun, 19 Apr 2015 17:55:31 ART</pubDate>
-      <author>Martín Anzorena</author>
-      <guid>http://martjanz.github.io/post/20150419-github-subtree/</guid>
-      <description>&lt;p&gt;&lt;code&gt;git subtree&lt;/code&gt; no está disponible en las instalaciones por defecto de git y puede llegar a necesitarse, por ejemplo, para mantener directorios espejados dentro de un mismo repositorio git.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>1/392</title>
-      <link>http://martjanz.github.io/post/20150418-first/</link>
-      <pubDate>Sat, 18 Apr 2015 16:13:16 ART</pubDate>
-      <author>Martín Anzorena</author>
-      <guid>http://martjanz.github.io/post/20150418-first/</guid>
-      <description>&lt;p&gt;La cosa era cómo tener un blog simple, open source, que soporte trabajar offline, sin tener que estar pendiente de que no se caiga la base de datos, el sitio, la plataforma o una taza sobre el gabinete.&lt;/p&gt;
 </description>
     </item>
     

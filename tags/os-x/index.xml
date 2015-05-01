@@ -7,7 +7,23 @@
     <language>es-ar</language>
     <author>Martín Anzorena</author>
     
-    <updated>Sun, 19 Apr 2015 17:55:31 ART</updated>
+    <updated>Thu, 30 Apr 2015 20:57:41 ART</updated>
+    
+    <item>
+      <title>RegExp en SQLite (OS X)</title>
+      <link>http://martjanz.github.io/post/20150430-sqlite-regexp-osx/</link>
+      <pubDate>Thu, 30 Apr 2015 20:57:41 ART</pubDate>
+      <author>Martín Anzorena</author>
+      <guid>http://martjanz.github.io/post/20150430-sqlite-regexp-osx/</guid>
+      <description>&lt;p&gt;SQLite, el motor base de datos portable por excelencia, no tiene soporte nativo para expresiones regulares.&lt;/p&gt;
+
+&lt;p&gt;– ¡Pero en la documentación dice que existe REGEXP!&lt;/p&gt;
+
+&lt;p&gt;Sí, REGEXP es un comando especial para la función &lt;code&gt;regexp()&lt;/code&gt; definida por el usuario, y como por defecto no hay función &lt;code&gt;regexp()&lt;/code&gt; definida el uso de REGEXP suele resultar en un mensaje de error.&lt;/p&gt;
+
+&lt;p&gt;Para habilitar el uso de las expresiones regulares desde la línea de comandos hay que seguir algunos pasos, y eso es lo que se detalla a continuación.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>git subtree: instalación en OS X</title>
