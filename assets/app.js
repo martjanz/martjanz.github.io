@@ -1,4 +1,4 @@
-import { USER, filterCards, formatMonth, pickLanguage } from './repos.js';
+import { USER, SORTS, describe, filterCards, sortCards, formatMonth, pickLanguage } from './repos.js';
 
 const TEXT = {
   es: {
@@ -7,8 +7,11 @@ const TEXT = {
     repos: 'Proyectos',
     search: 'Buscar',
     onlyLive: 'Solo con página',
+    sortLabel: 'Ordenar',
+    sort: { updated: 'Recientes', name: 'A–Z', stars: 'Estrellas' },
     live: 'Ver página',
     code: 'Código',
+    tech: 'Tecnologías',
     updated: 'Actualizado',
     loading: 'Cargando…',
     empty: 'No hay proyectos que coincidan.',
@@ -24,8 +27,11 @@ const TEXT = {
     repos: 'Projects',
     search: 'Search',
     onlyLive: 'Only with a page',
+    sortLabel: 'Sort',
+    sort: { updated: 'Recent', name: 'A–Z', stars: 'Stars' },
     live: 'Open page',
     code: 'Code',
+    tech: 'Technologies',
     updated: 'Updated',
     loading: 'Loading…',
     empty: 'No projects match.',
@@ -37,7 +43,7 @@ const TEXT = {
   },
 };
 
-const state = { lang: 'es', cards: null, error: false, query: '', onlyLive: false };
+const state = { lang: 'es', cards: null, error: false, query: '', onlyLive: false, sort: 'updated' };
 const $ = (sel) => document.querySelector(sel);
 
 const saved = {
@@ -61,15 +67,17 @@ function el(tag, attrs = {}, ...children) {
 
 function renderItem(card, t) {
   const meta = [
-    card.language,
     card.stars > 0 ? `★ ${card.stars}` : null,
     card.updated ? `${t.updated} ${formatMonth(card.updated, state.lang)}` : null,
   ].filter(Boolean);
+  const tags = card.tags || (card.language ? [card.language] : []);
+  const desc = describe(card, state.lang);
   return el('li', { class: card.live ? 'item live' : 'item' },
     el('div', { class: 'item-main' },
       el('h3', {}, el('a', { href: card.live || card.url }, card.name)),
-      card.description && el('p', { class: 'desc' }, card.description),
-      el('p', { class: 'meta' }, meta.join(' · ')),
+      desc && el('p', { class: 'desc' }, desc),
+      tags.length > 0 && el('ul', { class: 'tags', 'aria-label': t.tech }, ...tags.map((tag) => el('li', {}, tag))),
+      meta.length > 0 && el('p', { class: 'meta' }, meta.join(' · ')),
     ),
     el('div', { class: 'item-links' },
       card.live && el('a', { class: 'live-link', href: card.live }, `${t.live} →`),
@@ -90,7 +98,7 @@ function renderList() {
   }
   if (!state.cards) { status.textContent = t.loading; return; }
 
-  const shown = filterCards(state.cards, state);
+  const shown = sortCards(filterCards(state.cards, state), state.sort);
   status.textContent = shown.length ? t.count(shown.length, state.cards.length) : t.empty;
   list.append(...shown.map((c) => renderItem(c, t)));
 }
@@ -104,11 +112,16 @@ function renderText() {
   const toggle = $('#lang-toggle');
   toggle.textContent = t.switchTo;
   toggle.setAttribute('aria-label', t.switchLabel);
+  const select = $('#sort');
+  select.replaceChildren(...SORTS.map((key) => el('option', { value: key }, t.sort[key])));
+  select.value = state.sort;
   renderList();
 }
 
 async function init() {
   state.lang = pickLanguage(saved.get('lang'), navigator.languages || [navigator.language]);
+  const savedSort = saved.get('sort');
+  if (SORTS.includes(savedSort)) state.sort = savedSort;
   renderText();
 
   $('#lang-toggle').addEventListener('click', () => {
@@ -117,6 +130,7 @@ async function init() {
     renderText();
   });
   $('#search').addEventListener('input', (e) => { state.query = e.target.value; renderList(); });
+  $('#sort').addEventListener('change', (e) => { state.sort = e.target.value; saved.set('sort', state.sort); renderList(); });
   $('#only-live').addEventListener('change', (e) => { state.onlyLive = e.target.checked; renderList(); });
 
   try {

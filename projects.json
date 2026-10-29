@@ -1,0 +1,9 @@
+{
+  "$comment": "Optional per-repo overrides, keyed by repo name. description: {es, en} replaces the GitHub description. tech: list of tags replaces the automatic ones (main languages + frameworks detected from package.json/requirements/pyproject/go.mod/Dockerfile + GitHub topics). Max 6 tags.",
+  "tordo": {
+    "description": {
+      "es": "Catálogo y reproductor local y portable para una colección de música repartida en carpetas.",
+      "en": "A local, portable catalog and player for a music collection spread across folders."
+    }
+  }
+}
