@@ -1,183 +1,53 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Esquelas - Esquelas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <link rel="canonical" href="http://martjanz.github.io/">
-
-  
-  
-
-  
-  
-
-  
-  
-
-  <link rel="stylesheet" type="text/css" href="http://martjanz.github.io//css/combined-min.css">
-
+  <title>Martín Anzorena</title>
+  <meta name="description" content="Martín Anzorena — desarrollador full-stack. Proyectos y repositorios.">
+  <link rel="canonical" href="https://martjanz.github.io/">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f62'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="assets/app.js"></script>
 </head>
-<body class="">
+<body>
+  <a class="skip" href="#repos" data-i18n="skip">Saltar a repositorios</a>
+  <div class="wrap">
+    <header class="top">
+      <img class="avatar" src="https://github.com/martjanz.png?size=160" alt="" width="64" height="64">
+      <button id="lang-toggle" class="lang-toggle" type="button" lang="en">English</button>
+    </header>
 
-<div class="site-wrap">
-    <header class="site-header px2 px-responsive">
-  <div class="mt2 wrap">
-    <div class="measure">
-      <a href="http://martjanz.github.io/" class="site-title">Esquelas</a>
-      <nav class="site-nav right">
-      <a href="http://martjanz.github.io/proyectos/">Proyectos</a>
-<a href="http://martjanz.github.io/tags">Tags</a>
-<a href="http://martjanz.github.io/contact">Contacto</a>
+    <main>
+      <section class="intro">
+        <h1 data-i18n="title">Martín Anzorena</h1>
+        <p id="bio" class="bio">Hola, soy Martín. Desarrollo software full-stack, entre Gualeguaychú (Entre Ríos) y la Ciudad de Buenos Aires.</p>
+        <ul class="contact">
+          <li><a href="https://github.com/martjanz">GitHub</a></li>
+          <li><a href="mailto:martin.anzorena@gmail.com">martin.anzorena@gmail.com</a></li>
+          <!-- <li><a href="https://www.linkedin.com/in/USERNAME/">LinkedIn</a></li> -->
+        </ul>
+      </section>
 
-
-</form>
-
-      </nav>
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</header>
-
-    
-    <div class="post p2 p-responsive wrap" role="main">
-        <div class="measure">
-            <div class="home">
-                <div class="posts">
-                    
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://martjanz.github.io/post/20150430-sqlite-regexp-osx/">
-  <p class="post-meta left">30/4/2015</p>
-  
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">RegExp en SQLite (OS X) </h3>
-  <p class="post-summary"><p>SQLite, el motor base de datos portable por excelencia, no tiene soporte nativo para expresiones regulares.</p>
-
-<p>– ¡Pero en la documentación dice que existe REGEXP!</p>
-
-<p>Sí, REGEXP es un comando especial para la función <code>regexp()</code> definida por el usuario, y como por defecto no hay función <code>regexp()</code> definida el uso de REGEXP suele resultar en un mensaje de error.</p>
-
-<p>Para habilitar el uso de las expresiones regulares desde la línea de comandos hay que seguir algunos pasos, y eso es lo que se detalla a continuación.</p>
-</p>
-  </a>
-  
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://martjanz.github.io//tags/sqlite">sqlite</a>
-  
-      ,&nbsp;
-      <a href="http://martjanz.github.io//tags/regexp">regexp</a>
-  
-      ,&nbsp;
-      <a href="http://martjanz.github.io//tags/os%20x">os x</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://martjanz.github.io/post/20150419-github-subtree/">
-  <p class="post-meta left">19/4/2015</p>
-  
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">git subtree: instalación en OS X </h3>
-  <p class="post-summary"><p><code>git subtree</code> no está disponible en las instalaciones por defecto de git y puede llegar a necesitarse, por ejemplo, para mantener directorios espejados dentro de un mismo repositorio git.</p>
-</p>
-  </a>
-  
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://martjanz.github.io//tags/git">git</a>
-  
-      ,&nbsp;
-      <a href="http://martjanz.github.io//tags/os%20x">os x</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                        
-                            
-                                <div class="post">
-  <a class="post-link" href="http://martjanz.github.io/post/20150418-first/">
-  <p class="post-meta left">18/4/2015</p>
-  
-  <div class="clearfix"></div>
-  <h3 class="h2 post-title">1/392 </h3>
-  <p class="post-summary"><p>La cosa era cómo tener un blog simple, open source, que soporte trabajar offline, sin tener que estar pendiente de que no se caiga la base de datos, el sitio, la plataforma o una taza sobre el gabinete.</p>
-</p>
-  </a>
-  
-  <p class="post-meta">Tags:&nbsp;
-  
-      
-      <a href="http://martjanz.github.io//tags/hugo">hugo</a>
-  
-      ,&nbsp;
-      <a href="http://martjanz.github.io//tags/jekyll">jekyll</a>
-  
-      ,&nbsp;
-      <a href="http://martjanz.github.io//tags/nanoc">nanoc</a>
-  </p>
-</div>
-
-                            
-                        
-                            
-                        
-                    
-                </div>
-            </div>
+      <section id="repos" class="repos" aria-labelledby="repos-title">
+        <div class="repos-head">
+          <h2 id="repos-title" data-i18n="repos">Repositorios</h2>
+          <div class="controls">
+            <label class="visually-hidden" for="search" data-i18n="search">Buscar</label>
+            <input id="search" type="search" autocomplete="off" placeholder="Buscar…">
+            <label class="check"><input id="only-live" type="checkbox"> <span data-i18n="onlyLive">Solo con página</span></label>
+          </div>
         </div>
-    </div>
-</div>
-    <footer class="footer">
-      <div class="p2 wrap">
-        <div class="measure mt1 center">
-      <nav class="social-icons icons">
-<a class="fa fa-rss rss" href="http://martjanz.github.io/index.xml"></a>
+        <p id="repo-status" class="status" role="status" aria-live="polite">Cargando repositorios…</p>
+        <ul id="repo-list" class="grid"></ul>
+        <noscript><p><a href="https://github.com/martjanz?tab=repositories">github.com/martjanz</a></p></noscript>
+      </section>
+    </main>
 
-<a class="fa fa-twitter twitter" href="https://twitter.com/martianz"></a>
-
-</nav>
-
-          <small>
-            Copyleft (ɔ) 2015<br>
-            Powered by <a href="http://gohugo.io/" target="_blank">Hugo</a>. Tema basado en <a href="https://github.com/azmelanar/hugo-theme-pixyll" target="_blank">Pixyll</a>.
-          </small>
-        </div>
-      </div>
+    <footer class="foot">
+      <a href="blog/" data-i18n="oldBlog">Blog viejo (2015)</a>
     </footer>
-
-    
-    <script src="http://martjanz.github.io/js/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-    
-    
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-62052604-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-
-
+  </div>
 </body>
 </html>
-
