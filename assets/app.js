@@ -1,83 +1,49 @@
-import { USER, prepare, filterCards, formatMonth, pickLanguage } from './repos.js';
+import { USER, filterCards, formatMonth, pickLanguage } from './repos.js';
 
 const TEXT = {
   es: {
-    title: 'Martín Anzorena',
+    skip: 'Saltar a proyectos',
     bio: 'Hola, soy Martín. Desarrollo software full-stack, entre Gualeguaychú (Entre Ríos) y la Ciudad de Buenos Aires. Hoy trabajo en <a href="https://mapcraft.io">MapCraft</a>, haciendo aplicaciones web basadas en datos, muchas veces con mapas. Abajo, algunas cosas que hice o con las que estuve jugando.',
-    skip: 'Saltar a repositorios',
-    repos: 'Repositorios',
+    repos: 'Proyectos',
     search: 'Buscar',
-    searchPlaceholder: 'Buscar (nombre, lenguaje, tema)',
     onlyLive: 'Solo con página',
     live: 'Ver página',
     code: 'Código',
     updated: 'Actualizado',
-    loading: 'Cargando repositorios…',
-    empty: 'No hay repositorios que coincidan.',
-    error: 'No se pudieron cargar los repositorios en este momento.',
-    errorLink: 'Verlos en GitHub',
-    count: (n, total) => `${n} de ${total}`,
-    oldBlog: 'Blog viejo (2015)',
-    switchTo: 'English',
+    loading: 'Cargando…',
+    empty: 'No hay proyectos que coincidan.',
+    error: 'No se pudo cargar la lista.',
+    errorLink: 'Ver en GitHub',
+    count: (n, total) => (n === total ? `${total} repositorios` : `${n} de ${total}`),
+    switchTo: 'EN',
     switchLabel: 'Switch to English',
   },
   en: {
-    title: 'Martín Anzorena',
+    skip: 'Skip to projects',
     bio: 'Hi, I’m Martín. I’m a full-stack developer splitting my time between Gualeguaychú (Entre Ríos) and Buenos Aires City. I currently work at <a href="https://mapcraft.io">MapCraft</a>, building data-driven web apps, often with maps. Below are some things I’ve built or tinkered with.',
-    skip: 'Skip to repositories',
-    repos: 'Repositories',
+    repos: 'Projects',
     search: 'Search',
-    searchPlaceholder: 'Search (name, language, topic)',
     onlyLive: 'Only with a page',
     live: 'Open page',
     code: 'Code',
     updated: 'Updated',
-    loading: 'Loading repositories…',
-    empty: 'No repositories match.',
-    error: 'Couldn’t load the repositories right now.',
+    loading: 'Loading…',
+    empty: 'No projects match.',
+    error: 'Couldn’t load the list.',
     errorLink: 'See them on GitHub',
-    count: (n, total) => `${n} of ${total}`,
-    oldBlog: 'Old blog (2015)',
-    switchTo: 'Español',
+    count: (n, total) => (n === total ? `${total} repositories` : `${n} of ${total}`),
+    switchTo: 'ES',
     switchLabel: 'Cambiar a español',
-  },
-};
-
-const API = `https://api.github.com/users/${USER}/repos?per_page=100&type=owner&sort=pushed`;
-const CACHE_KEY = 'repos-cache-v1';
-const CACHE_MS = 60 * 60 * 1000;
-
-const store = {
-  get(storage, key) {
-    try { return window[storage].getItem(key); } catch { return null; }
-  },
-  set(storage, key, value) {
-    try { window[storage].setItem(key, value); } catch { /* storage unavailable */ }
   },
 };
 
 const state = { lang: 'es', cards: null, error: false, query: '', onlyLive: false };
 const $ = (sel) => document.querySelector(sel);
 
-async function loadRepos() {
-  const cached = store.get('sessionStorage', CACHE_KEY);
-  if (cached) {
-    try {
-      const { at, data } = JSON.parse(cached);
-      if (Date.now() - at < CACHE_MS) return data;
-    } catch { /* ignore bad cache */ }
-  }
-  const all = [];
-  for (let page = 1; page <= 5; page++) {
-    const res = await fetch(`${API}&page=${page}`, { headers: { Accept: 'application/vnd.github+json' } });
-    if (!res.ok) throw new Error(`GitHub API ${res.status}`);
-    const batch = await res.json();
-    all.push(...batch);
-    if (batch.length < 100) break;
-  }
-  store.set('sessionStorage', CACHE_KEY, JSON.stringify({ at: Date.now(), data: all }));
-  return all;
-}
+const saved = {
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch { /* unavailable */ } },
+};
 
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -87,27 +53,28 @@ function el(tag, attrs = {}, ...children) {
     else node.setAttribute(k, v);
   }
   for (const child of children) {
-    if (child == null || child === false) continue;
+    if (child == null || child === false || child === '') continue;
     node.append(child instanceof Node ? child : document.createTextNode(String(child)));
   }
   return node;
 }
 
-function renderCard(card, t) {
-  const meta = el('p', { class: 'meta' },
-    card.language && el('span', { class: 'lang' }, card.language),
-    card.stars > 0 && el('span', { 'aria-label': `${card.stars} stars` }, `★ ${card.stars}`),
-    card.updated && el('span', {}, `${t.updated} ${formatMonth(card.updated, state.lang)}`),
-  );
-  const links = el('p', { class: 'links' },
-    card.live && el('a', { class: 'btn primary', href: card.live }, `${t.live} ↗`),
-    el('a', { class: 'btn', href: card.url }, t.code),
-  );
-  return el('li', { class: card.live ? 'card has-live' : 'card' },
-    el('h3', {}, el('a', { href: card.live || card.url }, card.name)),
-    card.description && el('p', { class: 'desc' }, card.description),
-    meta,
-    links,
+function renderItem(card, t) {
+  const meta = [
+    card.language,
+    card.stars > 0 ? `★ ${card.stars}` : null,
+    card.updated ? `${t.updated} ${formatMonth(card.updated, state.lang)}` : null,
+  ].filter(Boolean);
+  return el('li', { class: card.live ? 'item live' : 'item' },
+    el('div', { class: 'item-main' },
+      el('h3', {}, el('a', { href: card.live || card.url }, card.name)),
+      card.description && el('p', { class: 'desc' }, card.description),
+      el('p', { class: 'meta' }, meta.join(' · ')),
+    ),
+    el('div', { class: 'item-links' },
+      card.live && el('a', { class: 'live-link', href: card.live }, `${t.live} →`),
+      el('a', { class: 'code-link', href: card.url, 'aria-label': `${t.code}: ${card.name}` }, t.code),
+    ),
   );
 }
 
@@ -118,14 +85,14 @@ function renderList() {
   list.replaceChildren();
 
   if (state.error) {
-    status.replaceChildren(t.error, ' ', el('a', { href: `https://github.com/${USER}?tab=repositories` }, `${t.errorLink} ↗`));
+    status.replaceChildren(`${t.error} `, el('a', { href: `https://github.com/${USER}?tab=repositories` }, t.errorLink));
     return;
   }
   if (!state.cards) { status.textContent = t.loading; return; }
 
   const shown = filterCards(state.cards, state);
   status.textContent = shown.length ? t.count(shown.length, state.cards.length) : t.empty;
-  list.append(...shown.map((c) => renderCard(c, t)));
+  list.append(...shown.map((c) => renderItem(c, t)));
 }
 
 function renderText() {
@@ -133,30 +100,34 @@ function renderText() {
   document.documentElement.lang = state.lang;
   for (const node of document.querySelectorAll('[data-i18n]')) node.textContent = t[node.dataset.i18n];
   $('#bio').innerHTML = t.bio; // static, trusted strings defined above
-  $('#search').placeholder = t.searchPlaceholder;
+  $('#search').placeholder = t.search;
   const toggle = $('#lang-toggle');
   toggle.textContent = t.switchTo;
   toggle.setAttribute('aria-label', t.switchLabel);
-  toggle.setAttribute('lang', state.lang === 'es' ? 'en' : 'es');
   renderList();
 }
 
-function init() {
-  state.lang = pickLanguage(store.get('localStorage', 'lang'), navigator.languages || [navigator.language]);
+async function init() {
+  state.lang = pickLanguage(saved.get('lang'), navigator.languages || [navigator.language]);
   renderText();
 
   $('#lang-toggle').addEventListener('click', () => {
     state.lang = state.lang === 'es' ? 'en' : 'es';
-    store.set('localStorage', 'lang', state.lang);
+    saved.set('lang', state.lang);
     renderText();
   });
   $('#search').addEventListener('input', (e) => { state.query = e.target.value; renderList(); });
   $('#only-live').addEventListener('change', (e) => { state.onlyLive = e.target.checked; renderList(); });
 
-  loadRepos()
-    .then((data) => { state.cards = prepare(data); })
-    .catch((err) => { console.error(err); state.error = true; })
-    .finally(renderList);
+  try {
+    const res = await fetch('repos.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`repos.json ${res.status}`);
+    state.cards = (await res.json()).repos;
+  } catch (err) {
+    console.error(err);
+    state.error = true;
+  }
+  renderList();
 }
 
 init();

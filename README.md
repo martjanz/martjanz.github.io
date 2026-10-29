@@ -1,12 +1,19 @@
 # martjanz.github.io
 
-Personal page: a short bio (ES/EN) and a live list of my public repositories.
+Personal page: a short bio (ES/EN) and a list of my public repositories.
 
-- No build step: plain HTML, CSS and a JS module.
-- Repos are fetched from the GitHub API in the visitor's browser (cached for 1 h per session).
-  Forks, archived repos and this repo are hidden.
-- A repo gets an "Open page" button when its **homepage** field is set, or when GitHub Pages is enabled for it.
-  To surface a project deployed elsewhere, just fill in the repo's *Website* field on GitHub.
-- The previous blog (2015) lives at [`/blog/`](https://martjanz.github.io/blog/).
+- Plain HTML, CSS and a JS module. No framework, no dependencies.
+- **Static build**: `.github/workflows/pages.yml` runs the tests, then `scripts/build.mjs`,
+  which fetches my repos from the GitHub API and writes `repos.json` into `_site/`, then deploys it.
+  It runs on every push to `master`, daily, and on demand (Actions → *Build and deploy site* → *Run workflow*).
+- Forks, archived repos and this repo are hidden.
+- A repo gets an "Open page" link when GitHub Pages is enabled for it.
+- `campomap/` is a git submodule served as part of this site.
+- Font: Montserrat, self-hosted (SIL Open Font License, `assets/fonts/OFL.txt`).
 
-Tests (Node 20+): `npm test`
+Requires *Settings → Pages → Source: GitHub Actions*.
+
+```sh
+npm test        # unit tests (Node 20+)
+npm run serve   # build into _site/ and serve it on http://localhost:8000
+```

@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "npm run build && python3 -m http.server 8000 -d _site"
   }
 }

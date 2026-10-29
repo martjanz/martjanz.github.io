@@ -7,47 +7,44 @@
   <meta name="description" content="Martín Anzorena — desarrollador full-stack. Proyectos y repositorios.">
   <link rel="canonical" href="https://martjanz.github.io/">
   <meta name="color-scheme" content="light dark">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6f62'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f2328'/%3E%3Ctext x='16' y='22' font-family='Montserrat,Arial,sans-serif' font-weight='700' font-size='17' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
   <script type="module" src="assets/app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#repos" data-i18n="skip">Saltar a repositorios</a>
+  <a class="skip" href="#repos" data-i18n="skip">Saltar a proyectos</a>
   <div class="wrap">
     <header class="top">
-      <img class="avatar" src="https://github.com/martjanz.png?size=160" alt="" width="64" height="64">
-      <button id="lang-toggle" class="lang-toggle" type="button" lang="en">English</button>
+      <span class="handle">martjanz</span>
+      <button id="lang-toggle" class="lang-toggle" type="button">EN</button>
     </header>
 
     <main>
       <section class="intro">
-        <h1 data-i18n="title">Martín Anzorena</h1>
+        <h1>Martín Anzorena</h1>
         <p id="bio" class="bio">Hola, soy Martín. Desarrollo software full-stack, entre Gualeguaychú (Entre Ríos) y la Ciudad de Buenos Aires.</p>
         <ul class="contact">
           <li><a href="https://github.com/martjanz">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/martinanzorena/">LinkedIn</a></li>
           <li><a href="mailto:martin.anzorena@gmail.com">martin.anzorena@gmail.com</a></li>
-          <!-- <li><a href="https://www.linkedin.com/in/USERNAME/">LinkedIn</a></li> -->
         </ul>
       </section>
 
       <section id="repos" class="repos" aria-labelledby="repos-title">
         <div class="repos-head">
-          <h2 id="repos-title" data-i18n="repos">Repositorios</h2>
+          <h2 id="repos-title" data-i18n="repos">Proyectos</h2>
           <div class="controls">
             <label class="visually-hidden" for="search" data-i18n="search">Buscar</label>
-            <input id="search" type="search" autocomplete="off" placeholder="Buscar…">
+            <input id="search" type="search" autocomplete="off" placeholder="Buscar">
             <label class="check"><input id="only-live" type="checkbox"> <span data-i18n="onlyLive">Solo con página</span></label>
           </div>
         </div>
-        <p id="repo-status" class="status" role="status" aria-live="polite">Cargando repositorios…</p>
-        <ul id="repo-list" class="grid"></ul>
+        <p id="repo-status" class="status" role="status" aria-live="polite">Cargando…</p>
+        <ul id="repo-list" class="list"></ul>
         <noscript><p><a href="https://github.com/martjanz?tab=repositories">github.com/martjanz</a></p></noscript>
       </section>
     </main>
-
-    <footer class="foot">
-      <a href="blog/" data-i18n="oldBlog">Blog viejo (2015)</a>
-    </footer>
   </div>
 </body>
 </html>
